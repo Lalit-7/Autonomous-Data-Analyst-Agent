@@ -1,0 +1,139 @@
+/* AnalysisResult.css */
+.analysis-result-card {
+  margin-bottom: 20px;
+}
+
+.result-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.result-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.result-query {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-bottom: 20px;
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 8px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-teal);
+  line-height: 1.2;
+}
+
+.metric-label {
+  margin-top: 4px;
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+}
+
+.result-insights {
+  margin: 20px 0;
+}
+
+.result-insights h4 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+/* Rendered markdown headings */
+.insight-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 24px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.insight-subheading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-teal);
+  margin: 18px 0 8px;
+}
+
+/* Paragraphs */
+.insights-text p {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.insights-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Lists */
+.insight-list {
+  margin: 8px 0 16px 20px;
+  padding: 0;
+}
+
+.insight-list li {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  padding-left: 4px;
+}
+
+.insight-list li strong {
+  color: var(--text-primary);
+}
+
+/* Inline code */
+.inline-code {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  background: rgba(13, 148, 136, 0.08);
+  color: var(--accent-teal);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .metrics-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .result-actions {
+    flex-direction: column;
+  }
+  .result-actions .btn {
+    justify-content: center;
+  }
+}

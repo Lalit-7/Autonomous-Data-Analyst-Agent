@@ -1,0 +1,132 @@
+/* App.css — Main layout and page-level styles */
+
+.main-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 28px 24px 60px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 24px;
+  align-items: start;
+}
+
+.main-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-right {
+  position: sticky;
+  top: 96px;
+}
+
+/* Currently Analyzing Card */
+.analyzing-card {
+  margin-bottom: 20px;
+}
+
+.analyzing-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.analyzing-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.analyzing-meta {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.analyzing-step {
+  font-size: 0.7rem;
+  color: var(--accent-teal);
+  font-weight: 500;
+}
+
+/* Error Card */
+.error-card {
+  margin-bottom: 20px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.04);
+}
+
+.error-text {
+  color: var(--accent-red);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Insights Row */
+.insights-row {
+  margin-bottom: 20px;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.insight-mini-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.insight-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 148, 136, 0.08);
+  border-radius: var(--radius-sm);
+}
+
+.insight-finding {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.insight-finding strong {
+  color: var(--text-primary);
+}
+
+.insight-source {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-right {
+    position: static;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 16px 12px 40px;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
