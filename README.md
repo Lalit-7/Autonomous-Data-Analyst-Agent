@@ -8,7 +8,7 @@
 
 <br />
 
-![Dashboard Overview](docs/screenshots/dashboard.png)
+![Dashboard Overview](https://github.com/user-attachments/assets/5a9ebb0a-c83c-4154-b004-4225ffc40004)
 
 ## 🚀 Features
 
@@ -23,13 +23,13 @@
 ## 📸 Screenshots
 
 ### Correlation Matrix
-![Correlation](docs/screenshots/correlation.png)
+![Correlation](https://github.com/user-attachments/assets/6ea18174-3d91-4a76-9c7f-09d57740fed8)
 
 ### Cluster Segmentation Insights
-![Insights](docs/screenshots/insights.png)
+![Insights](https://github.com/user-attachments/assets/69b47dfa-8fff-4dac-8032-074002918efb)
 
 ### Distribution Charts
-![Charts](docs/screenshots/charts.png)
+![Charts](https://github.com/user-attachments/assets/d5fa3685-5c15-4dd9-9a57-e99b7c8f466c)
 
 <br />
 
