@@ -1,108 +1,105 @@
-# 🤖 Autonomous Data Analyst Agent
+<div align="center">
+  <h1>🤖 Autonomous Data Analyst Agent</h1>
+  <p>An AI-powered autonomous agent that instantly cleans, profiles, and analyzes data using advanced machine learning, all presented in a beautiful editorial UI.</p>
 
-An AI-powered web application that autonomously analyzes datasets, runs real machine learning models, generates visualizations, and produces plain-English insight reports — all without user guidance.
+  [![Live Demo](https://img.shields.io/badge/Live_Demo-View_App-0f766e?style=for-the-badge&logo=vercel)](https://autonomous-data-analyst-agent.vercel.app/)
+  [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/Lalit-7/Autonomous-Data-Analyst-Agent)
+</div>
 
-**Upload data → Ask a question → Get a complete analysis.**
+<br />
 
----
+![Dashboard Overview](docs/screenshots/dashboard.png)
 
-## ✨ Features
+## 🚀 Features
 
-- **Autonomous Analysis** — The agent decides what to run (profiling, ML models, charts) without asking.
-- **Real ML Models** — KMeans clustering, GradientBoosting classification/regression, IsolationForest anomaly detection.
-- **Auto-Detection** — Automatically determines classification, regression, clustering, or anomaly detection from data shape.
-- **Rich Visualizations** — Distribution plots, correlation heatmaps, cluster scatter plots, feature importance charts.
-- **Session Memory** — ChromaDB-backed memory for follow-up questions with full context.
-- **PDF Export** — Download a complete analysis report as PDF.
-- **Multi-Format Upload** — CSV, Excel (.xlsx/.xls), and JSON.
-- **LangGraph Orchestration** — Structured agentic loop with tool routing, retry logic, and state management.
-- **Editorial UI** — Clean, professional SaaS dashboard with light paper-and-ink aesthetic.
+*   **Autonomous ML Detection:** Upload a CSV/Excel file, and the agent automatically determines the best machine learning task (Classification, Regression, Clustering, or Anomaly Detection).
+*   **Conversational Analytics:** Ask questions in plain English (e.g., *"Find patterns"*, *"Predict outcomes"*).
+*   **Beautiful Visualizations:** Automatically generated correlation matrices, distribution graphs, clustering plots, and anomaly scatter plots.
+*   **Professional Reporting:** Generates clean, formatted insights with actionable metrics and a downloadable PDF export.
+*   **History & Session Memory:** The agent remembers past steps using ChromaDB, allowing you to ask follow-up questions and navigate the task history seamlessly.
 
----
+<br />
 
-## 🏗️ Architecture
+## 📸 Screenshots
 
+### Correlation Matrix
+![Correlation](docs/screenshots/correlation.png)
+
+### Cluster Segmentation Insights
+![Insights](docs/screenshots/insights.png)
+
+### Distribution Charts
+![Charts](docs/screenshots/charts.png)
+
+<br />
+
+## 🛠️ Technology Stack
+
+**Frontend:**
+*   React + Vite
+*   Tailwind / Vanilla CSS (Glassmorphism & Editorial aesthetics)
+*   Recharts / Plotly (Data Visualization)
+*   Deployed on **Vercel**
+
+**Backend:**
+*   Python + FastAPI
+*   Google Gemini 2.5 Flash (LLM Inference)
+*   Scikit-Learn & Pandas (Machine Learning & Data Processing)
+*   ChromaDB (Vector Memory & State persistence)
+*   Deployed on **Render**
+
+<br />
+
+## 💻 Run Locally
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Lalit-7/Autonomous-Data-Analyst-Agent.git
+cd "Autonomous Data Analyst Agent"
 ```
-┌──────────────────────┐     REST API      ┌─────────────────────────┐
-│   React Frontend     │  ◄──────────────► │   FastAPI Backend       │
-│   (Vite)             │                   │                         │
-└──────────────────────┘                   │  ┌───────────────────┐  │
-                                           │  │ LangGraph Agent   │  │
-                                           │  │  • Gemini 2.0     │  │
-                                           │  │  • 6 Agent Tools  │  │
-                                           │  └───────────────────┘  │
-                                           │  ┌───────────────────┐  │
-                                           │  │ ChromaDB Memory   │  │
-                                           │  └───────────────────┘  │
-                                           │  ┌───────────────────┐  │
-                                           │  │ ML Engine         │  │
-                                           │  │ scikit-learn      │  │
-                                           │  └───────────────────┘  │
-                                           └─────────────────────────┘
+
+### 2. Start the Backend
+You will need a Gemini API key (`GOOGLE_API_KEY`) and an E2B API key (`E2B_API_KEY`).
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Mac/Linux
+pip install -r requirements.txt
+cp .env.example .env  # Add your API keys here
+python main.py
 ```
 
----
+### 3. Start the Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## 🛠️ Tech Stack
+The app will be running at `http://localhost:5173/`.
 
-| Layer | Technology | Purpose |
-|-------|-----------|---------|
-| Frontend | React + Vite | SPA dashboard UI |
-| Backend | FastAPI + Uvicorn | REST API server |
-| LLM | Google Gemini 2.0 Flash | Reasoning + tool selection |
-| Agent | LangGraph | Agentic loop orchestration |
-| ML | scikit-learn | KMeans, GradientBoosting, IsolationForest |
-| Charts | Matplotlib + Seaborn | Statistical visualizations |
-| Memory | ChromaDB | Session context retrieval |
-| PDF | FPDF2 | Report generation |
-
----
+<br />
 
 ## 📁 Project Structure
 
-```
-├── backend/
-│   ├── main.py              # FastAPI server with all API endpoints
-│   ├── agent/
-│   │   ├── graph.py          # LangGraph agentic loop with Gemini
-│   │   ├── tools.py          # 6 tool definitions (profiler, ML, viz, etc.)
-│   │   ├── memory.py         # ChromaDB session memory
-│   │   └── prompts.py        # System prompts and guardrails
-│   ├── ml/
-│   │   ├── analyzer.py       # Auto-ML detection and execution engine
-│   │   └── visualizer.py     # Chart generation (matplotlib/seaborn)
-│   ├── utils/
-│   │   └── file_handler.py   # File loading, profiling, PDF generation
-│   ├── requirements.txt
-│   └── .env
-├── frontend/
-│   ├── src/
-│   │   ├── components/       # React UI components
-│   │   ├── services/api.js   # Backend API client
-│   │   ├── App.jsx           # Main app shell
-│   │   ├── App.css           # Layout styles
-│   │   ├── index.css         # Design system
-│   │   └── main.jsx          # Entry point
-│   ├── index.html
-│   ├── vite.config.js
-│   └── .env
-└── README.md
+```text
+📦 Autonomous Data Analyst Agent
+ ┣ 📂 backend
+ ┃ ┣ 📂 agent          # Core LLM workflows, LangGraph logic, and memory
+ ┃ ┣ 📂 ml             # Scikit-learn models (analyzer) and plotting (visualizer)
+ ┃ ┣ 📂 utils          # PDF generators and file handlers
+ ┃ ┣ 📜 main.py        # FastAPI endpoints
+ ┃ ┗ 📜 requirements.txt
+ ┣ 📂 frontend
+ ┃ ┣ 📂 src
+ ┃ ┃ ┣ 📂 components   # React UI components (Sidebar, Charts, Chat, etc.)
+ ┃ ┃ ┣ 📂 services     # API handlers to communicate with the backend
+ ┃ ┃ ┗ 📜 App.jsx      # Main application logic
+ ┃ ┗ 📜 package.json
+ ┗ 📜 README.md
 ```
 
----
-
-## 🧠 How the Agent Works
-
-1. **User uploads data** → Backend saves file, profiles schema
-2. **User asks a question** → Backend retrieves session memory from ChromaDB
-3. **Auto-ML engine** runs profiling, detects task type, executes appropriate model
-4. **Chart engine** generates distribution plots, correlation heatmaps, cluster plots
-5. **LangGraph agent** invokes Gemini with tools, synthesizes all results into insights
-6. **Memory update** → Stores Q&A pair in ChromaDB for follow-up context
-7. **Response** → Charts, metrics, and plain-English insights returned to the frontend
-
----
-
-## 📄 License
-
-MIT License — free for personal and commercial use.
+<div align="center">
+  <p>Built by <a href="https://github.com/Lalit-7">Lalit-7</a></p>
+</div>
